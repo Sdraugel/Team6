@@ -1,1 +1,1 @@
-output: True
+output: time.struct_time(tm_year=2014, tm_mon=11, tm_mday=27, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=3, tm_yday=331, tm_isdst=0)

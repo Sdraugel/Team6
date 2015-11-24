@@ -1,5 +1,5 @@
 class: modules/feedparser.py
 method: _parse_date_iso8601
-input: 2014331207  
-oracle: oracle07
+input: 010-01-01T12:00:00+01:00  
+oracle: oracle10
 driver: python

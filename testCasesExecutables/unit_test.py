@@ -8,24 +8,27 @@ import importlib
 import fileinput
 import functools
 import os
-
 import eden
 
 sys.path.append(os.getcwd() + '/testCasesExecutables/eden/modules');
 sys.path.append(os.getcwd() + '/testCasesExecutables/eden/static/scripts/tools');
-my_input = []
-my_output = ''
 
-for line in fileinput.input():
-    my_input.append(line.strip())
+module_name = os.getenv('class').strip(' ').replace(".py","").replace("/",".")
+args = os.getenv('input').strip(' ').split(' ')
+method_name = os.getenv('method').strip(' ')
 
-module_name = my_input[0].replace(" ",".") 
-method_name = my_input[1] 
-args = my_input[2].split()
-print args
+mod = importlib.import_module('eden.{}'.format(module_name))
 
-mod = importlib.import_module('eden.{}'.format(module_name.replace(".py","")))
-print mod
+try:
+    method = functools.partial(getattr(mod,'{}'.format(method_name)),*args)
+    ret = method()
+except TypeError as e:
+    try:
+        args = [int(arg) for arg in args ]
+        method = functools.partial(getattr(mod,'{}'.format(method_name)),*args)
+        ret = method()
+    except Exception as e_2:
+        print(e)
+        print(e_2)
 
-method = functools.partial(getattr(mod,'{}'.format(method_name)),*args)
-print method()
+print ret

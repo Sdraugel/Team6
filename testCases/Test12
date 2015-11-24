@@ -1,0 +1,5 @@
+class: static/scripts/tools/jsmin.py
+method: isAlphanum
+input: 1
+oracle: oracle12
+driver: python

@@ -1,5 +1,5 @@
-class: modules arabic_reshaper.py
-method: is_haraka
-input: أ
-oracle: oracle02.txt
+class: modules/EXIF.py
+method: gcd
+input: 816 204
+oracle: oracle03
 driver: python

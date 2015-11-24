@@ -1,5 +1,5 @@
-class: modules feedparser.py
-method: _convert_to_idn 
-input: www.tacos.net/  
-oracle: oracle02.txt
+class: modules/EXIF.py
+method: gcd 
+input: 12 18  
+oracle: oracle04
 driver: python
